@@ -1,0 +1,6 @@
+# Arquivo para deploy no Streamlit Cloud
+name: Arbitragem Crypto Pro
+description: Plataforma de arbitragem de funding rate para criptomoedas com execução real
+sdk: streamlit
+sdk_version: 1.44.1
+python_version: 3.10
