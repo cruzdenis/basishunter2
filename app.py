@@ -188,7 +188,7 @@ def login_form():
         if authenticate(username, password):
             st.session_state.authenticated = True
             st.session_state.username = username
-            st.experimental_rerun()
+            st.rerun()
         else:
             st.error("Credenciais inválidas. Tente novamente.")
     
@@ -619,7 +619,7 @@ def main():
         st.session_state.username = ""
         st.session_state.api_key = ""
         st.session_state.api_secret = ""
-        st.experimental_rerun()
+        st.rerun()
     
     # Configurações de API na sidebar
     st.sidebar.markdown("### 🔑 Configurações de API")
@@ -630,7 +630,7 @@ def main():
         st.session_state.api_key = api_key
         st.session_state.api_secret = api_secret
         st.success("✅ Credenciais salvas com sucesso!")
-        st.experimental_rerun()
+        st.rerun()
     
     # Status da API
     st.sidebar.markdown(f"""
@@ -663,7 +663,7 @@ def main():
         with col_refresh:
             if st.button("🔄 Atualizar"):
                 st.cache_data.clear()
-                st.experimental_rerun()
+                st.rerun()
         
         selected_fut = quarter_symbols.get(selected_perp)
         
@@ -1005,7 +1005,7 @@ def main():
                                     
                                     if resultado["success"]:
                                         st.success(f"✅ Ordem #{idx+1} fechada com sucesso!")
-                                        st.experimental_rerun()
+                                        st.rerun()
                                     else:
                                         st.error(f"❌ Erro ao fechar a ordem: {resultado['error']}")
                     
@@ -1168,13 +1168,13 @@ def main():
                 st.success("Cache limpo com sucesso!")
             
             if st.button("🔄 Reiniciar Aplicação"):
-                st.experimental_rerun()
+                st.rerun()
             
             if st.button("⚠️ Resetar Arquivo de Operações", type="secondary"):
                 if st.checkbox("Confirmar reset (esta ação não pode ser desfeita)"):
                     salvar_operacoes([], st.session_state.username)
                     st.success("Arquivo de operações resetado com sucesso!")
-                    st.experimental_rerun()
+                    st.rerun()
 
 # Criar diretório para usuários
 os.makedirs("users", exist_ok=True)
